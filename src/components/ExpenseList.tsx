@@ -13,21 +13,21 @@ type ExpenseListProps = {
 const ExpenseList = (props: ExpenseListProps) => {
   const { expenseList, onDelete } = props;
 
-  if(expenseList.length === 0) {
+  if (expenseList.length === 0) {
     return (
-     <>
-     <div className="text-center">
-     <p className="text-primary m-4"> No Expense Added Yet</p>
-     </div>
-     </>
-    )
+      <>
+        <div className="text-center">
+          <p className="text-primary m-4"> No Expense Added Yet</p>
+        </div>
+      </>
+    );
   }
 
   return (
     <table className="table table-striped-columns">
       <thead>
         <tr>
-        <th>Description</th>
+          <th>Description</th>
           <th>Amount</th>
           <th>Category</th>
           <th>Action </th>
@@ -51,7 +51,10 @@ const ExpenseList = (props: ExpenseListProps) => {
           </tr>
         ))}
         <tr>
-          <td>Total: ${expenseList.reduce((total, expense) => total + expense.amount, 0)}</td>
+          <td>
+            Total: $
+            {expenseList.reduce((total, expense) => total + expense.amount, 0)}
+          </td>
         </tr>
       </tbody>
     </table>
