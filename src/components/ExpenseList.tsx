@@ -17,7 +17,7 @@ const ExpenseList = (props: ExpenseListProps) => {
     return (
       <>
         <div className="text-center">
-          <p className="text-primary m-4"> No Expense Added Yet</p>
+          <p className="text-primary m-4"> No Expense Added Yet!</p>
         </div>
       </>
     );
@@ -50,13 +50,14 @@ const ExpenseList = (props: ExpenseListProps) => {
             </td>
           </tr>
         ))}
-        <tr>
-          <td>
-            Total: $
-            {expenseList.reduce((total, expense) => total + expense.amount, 0)}
-          </td>
-        </tr>
+        <tr></tr>
       </tbody>
+      <tfoot>
+        <td>
+          Total: $
+          {expenseList.reduce((total, expense) => total + expense.amount, 0)}
+        </td>
+      </tfoot>
     </table>
   );
 };

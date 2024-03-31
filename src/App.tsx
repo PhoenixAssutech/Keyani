@@ -1,6 +1,8 @@
 import { useState } from "react";
-import CreateExpense from "./components/CreateExpense";
+
+import Header from "./components/Header";
 import ExpenseList from "./components/ExpenseList";
+import CreateExpense from "./components/CreateExpense";
 
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -14,8 +16,10 @@ function App() {
       description: "some",
     },
   ]);
+
   return (
     <>
+      <Header />
       <CreateExpense
         submitHandler={(data) => {
           setexpenseList([
@@ -26,7 +30,9 @@ function App() {
       />
       <ExpenseList
         expenseList={expenseList}
-        onDelete={(id) => setexpenseList([...expenseList.filter((e) => e.id !== id)])}
+        onDelete={(id) =>
+          setexpenseList([...expenseList.filter((e) => e.id !== id)])
+        }
       />
     </>
   );

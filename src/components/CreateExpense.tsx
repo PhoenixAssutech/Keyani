@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const createExpenseSchema = z.object({
-  description: z.string().min(10).max(300),
+  description: z.string().min(10, "please provide a description").max(300),
   amount: z
     .number({ invalid_type_error: "required a value" })
     .min(0.5)
@@ -79,6 +79,7 @@ const CreateExpense = ({ submitHandler }: CreateExpenseProps) => {
 
         <div className="mb-3">
           <select {...register("category")} className="form-select">
+            <option value="">Please select a value</option>
             {categories.map((category) => (
               <option key={category} value={category}>
                 {category}
@@ -88,8 +89,8 @@ const CreateExpense = ({ submitHandler }: CreateExpenseProps) => {
           {errors.category && <p> {errors.category.message}</p>}
         </div>
 
-        <div className="mb-3">
-          <button type="submit" className="btn btn-primary  ml-3">
+        <div className="mb-3 text-center">
+          <button type="submit" className="btn btn-primary  ml-3 px-5 py-2">
             Submit
           </button>
         </div>
