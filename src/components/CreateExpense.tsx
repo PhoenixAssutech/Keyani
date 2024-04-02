@@ -78,7 +78,8 @@ const CreateExpense = ({ submitHandler }: CreateExpenseProps) => {
         </div>
 
         <div className="mb-3">
-          <select {...register("category")} className="form-select">
+          <label htmlFor="category" className="form-label">Categories</label>
+          <select id="category" {...register("category")} className="form-select">
             <option value="">Please select a value</option>
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -86,7 +87,8 @@ const CreateExpense = ({ submitHandler }: CreateExpenseProps) => {
               </option>
             ))}
           </select>
-          {errors.category && <p> {errors.category.message}</p>}
+
+          {errors.category && <p className="text-danger"> {errors.category.message}</p>}
         </div>
 
         <div className="mb-3 text-center">
