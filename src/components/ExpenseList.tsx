@@ -53,10 +53,12 @@ const ExpenseList = (props: ExpenseListProps) => {
         <tr></tr>
       </tbody>
       <tfoot>
-        <td>
-          Total: $
-          {expenseList.reduce((total, expense) => total + expense.amount, 0)}
-        </td>
+        <tr>
+          <td>Total: </td>
+          <td>
+            ${expenseList.reduce((total, expense) => total + expense.amount, 0)}
+          </td>
+        </tr>
       </tfoot>
     </table>
   );
