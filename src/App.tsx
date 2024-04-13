@@ -8,15 +8,24 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   const [expenseList, setexpenseList] = useState([
     {
       id: 1,
       amount: 500,
-      category: "23",
+      category: "Food",
       description: "some",
     },
   ]);
 
+  const listToReturn = () => {
+    if (selectedCategory === "All") {
+      return expenseList;
+    }
+
+    return expenseList.filter((e) => e.category === selectedCategory);
+  };
   return (
     <>
       <Header />
@@ -29,7 +38,8 @@ function App() {
         }}
       />
       <ExpenseList
-        expenseList={expenseList}
+        setSelectedCategory={setSelectedCategory}
+        expenseList={listToReturn()}
         onDelete={(id) =>
           setexpenseList([...expenseList.filter((e) => e.id !== id)])
         }
