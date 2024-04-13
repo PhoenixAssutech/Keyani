@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.css";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const [expenseList, setexpenseList] = useState([
+  const [expenseList, setExpenseList] = useState([
     {
       id: 1,
       amount: 500,
@@ -31,7 +31,7 @@ function App() {
       <Header />
       <CreateExpense
         submitHandler={(data) => {
-          setexpenseList([
+          setExpenseList([
             ...expenseList,
             { ...data, id: expenseList.length + 1 },
           ]);
@@ -41,7 +41,7 @@ function App() {
         setSelectedCategory={setSelectedCategory}
         expenseList={listToReturn()}
         onDelete={(id) =>
-          setexpenseList([...expenseList.filter((e) => e.id !== id)])
+          setExpenseList([...expenseList.filter((e) => e.id !== id)])
         }
       />
     </>
