@@ -15,7 +15,7 @@ function App() {
       id: 1,
       amount: 500,
       category: "Food",
-      description: "some",
+      description: "Pizza at Pizza Hut Saturday",
     },
   ]);
 
