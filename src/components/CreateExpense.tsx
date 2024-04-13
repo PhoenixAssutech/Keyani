@@ -86,7 +86,7 @@ const CreateExpense = ({ submitHandler }: CreateExpenseProps) => {
             {...register("category")}
             className="form-select"
           >
-            <option value="">Please select a value</option>
+            <option value="">Please select a category</option>
             {categories.map((category) => (
               <option key={category} value={category}>
                 {category}
