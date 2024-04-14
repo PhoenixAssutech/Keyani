@@ -44,13 +44,13 @@ const ExpenseList = (props: ExpenseListProps) => {
   }
 
   return (
-    <>
-      <div className="mb-3">
-        <label htmlFor="category" className="form-label">
-          Categories
+    <div className="m-4">
+      <div className="mb-2">
+        <label htmlFor="category-select" className="form-label">
+          Select Category
         </label>
         <select
-          id="category"
+          id="category-select"
           onChange={(e) => setSelectedCategory(e.target.value)}
           className="form-select"
         >
@@ -62,7 +62,7 @@ const ExpenseList = (props: ExpenseListProps) => {
           ))}
         </select>
       </div>
-      <table className="table table-striped-columns">
+      <table className="table table-bordered table-striped">
         <thead>
           <tr>
             <th>Description</th>
@@ -77,9 +77,9 @@ const ExpenseList = (props: ExpenseListProps) => {
               <td>{expense.description}</td>
               <td>{expense.amount}</td>
               <td>{expense.category}</td>
-              <td>
+              <td className="text-center">
                 <button
-                  className="btn btn-outline-danger"
+                  className="btn btn-sm btn-outline-danger px-4"
                   type="button"
                   onClick={() => onDelete(expense.id)}
                 >
@@ -103,7 +103,7 @@ const ExpenseList = (props: ExpenseListProps) => {
           </tr>
         </tfoot>
       </table>
-    </>
+    </div>
   );
 };
 
